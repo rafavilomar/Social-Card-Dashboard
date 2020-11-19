@@ -1,5 +1,17 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+html {
+  --bg: hsl(0, 0%, 100%);
+  --textPrimary: hsl(230, 17%, 14%);
+  --textSecondary: hsl(228, 12%, 44%);
+}
+html[data-theme="dark"]{
+  --bg: hsl(230, 17%, 14%);
+  --textPrimary: hsl(0, 0%, 100%);
+  --textSecondary: hsl(228, 34%, 66%);
+}
+
+.body {
+  background-color: var(--bg);
 }
 
 .App-logo {
@@ -35,4 +47,41 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+html {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subjet {
+  font-weight: 800;
+  font-family: 'Inter';
+  color: var(--textPrimary);
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--textSecondary);
+  font-weight: 600;
+  font-family: 'Inter';
+}
+
+.switch {
+  font-size: 15px;
+  color: hsl(228, 12%, 44%);
+  font-weight: 600;
+  font-family: 'Inter';
+  text-align: end;
 }

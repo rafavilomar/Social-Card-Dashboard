@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+
+html {
+  --textPrimary: hsl(230, 17%, 14%);
+  --bgCard: hsl(227, 47%, 96%);
+  --textSecondary: hsl(228, 12%, 44%);
+  --toggle: hsl(231, 13%, 79%);
+}
+html[data-theme="dark"]{
+  --textPrimary: hsl(0, 0%, 100%);
+  --bgCard: hsl(228, 28%, 20%);
+  --textSecondary: hsl(228, 34%, 66%);
+  --toggle: hsl(210, 78%, 56%);
+}
+
+.root {
+  font-family: "Inter";
+  font-weight: 700;
+  background-color: var(--bgCard);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: end;
+}
+.root :hover {
+  cursor: pointer;
+  background-color: var(--toggle);
+}
+
+.title {
+  text-align: start;
+  font-size: 12px;
+  color: var(--textSecondary);
+}
+
+.details {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.number {
+  font-weight: 900;
+  color: var(--textPrimary);
+  font-size: 23px;
+  text-align: start;
+}
+
+.img {
+  margin-right: 10px;
+}
+
+.stats {
+  text-align: right;
+  font-size: 10px;
+}
