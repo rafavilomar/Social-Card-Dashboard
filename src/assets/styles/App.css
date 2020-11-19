@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 .App {
 }
 
@@ -34,4 +35,37 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subjet {
+  font-weight: 800;
+  font-family: 'Inter';
+}
+
+.subtitle {
+  font-size: 12px;
+  color: hsl(228, 12%, 44%);
+  font-weight: 600;
+  font-family: 'Inter';
+}
+
+.switch {
+  font-size: 12px;
+  color: hsl(228, 12%, 44%);
+  font-weight: 600;
+  font-family: 'Inter';
+  text-align: end;
 }

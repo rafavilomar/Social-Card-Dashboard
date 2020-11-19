@@ -1,31 +1,100 @@
+import React from 'react'
 import "./assets/styles/App.css";
 import CardSmall from "./components/CardSmall";
 
-import { Container, Col, Row } from "react-bootstrap";
+import { Container, Col, Row, Form } from "react-bootstrap";
+import CardNormal from "./components/CardNormal";
 
 function App() {
+  const [lightTheme, setLightTheme] = React.useState(false);
+  const handleChange = () => {
+    setLightTheme(!lightTheme)
+  }
+
   return (
-      <Container>
-      <h4 className="text-muted">Overview - Today</h4>
-        <Row>
-          {datas.map((data) => (
-            <Col xs={12} md={4} lg={3}>
-              <CardSmall
-                title={data.title}
-                number={data.number}
-                stats={data.stats}
-                direcction={data.direcction}
-                type={data.type}
-              />
-            </Col>
-          ))}
-        </Row>
-      </Container>
+    <Container className="body">
+      <Row className="header">
+        <Col xs={12} md={6}>
+          <h4 className="subjet">Social Media Dashboard</h4>
+          <p className='subtitle'>Total Followers: 23,004</p>
+        </Col>
+        <hr/>
+        <Col xs={12} md={6}>
+          <Form.Check
+            checked={lightTheme}
+            type="switch"
+            label="Dark Mode"
+            id="hoka"
+            className="switch"
+            onClick = {handleChange}
+          />
+        </Col>
+      </Row>
+      <Row>
+        {datasCardNormal.map((data) => (
+          <Col xs={12} md={4} lg={3}>
+            <CardNormal
+              userName={data.userName}
+              followers={data.followers}
+              stats={data.stats}
+              direcction={data.direcction}
+              type={data.type}
+            />
+          </Col>
+        ))}
+      </Row>
+
+      <h4 className="text-muted" style={{marginTop: '20px'}}>Overview - Today</h4>
+      <Row>
+        {datasCardSmall.map((data) => (
+          <Col xs={12} md={4} lg={3}>
+            <CardSmall
+              title={data.title}
+              number={data.number}
+              stats={data.stats}
+              direcction={data.direcction}
+              type={data.type}
+            />
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 }
 export default App;
 
-const datas = [
+const datasCardNormal = [
+  {
+    userName: "@nathanf",
+    followers: ["FOLLOWERS", "1987"],
+    stats: "12 Today",
+    direcction: "up",
+    type: "fb",
+  },
+  {
+    userName: "@nathanf",
+    followers: ["FOLLOWERS", "1044"],
+    stats: "99 Today",
+    direcction: "up",
+    type: "tw",
+  },
+  {
+    userName: "@realnathanf",
+    followers: ["FOLLOWERS", "11k"],
+    stats: "1099 Today",
+    direcction: "up",
+    type: "ig",
+  },
+  {
+    userName: "@Nathan F.",
+    followers: ["SUSCRIBERS", "8239"],
+    stats: "144 Today",
+    direcction: "down",
+    type: "yt",
+  },
+];
+
+const datasCardSmall = [
   {
     title: "Page Views",
     number: "87",
