@@ -1,16 +1,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
 
+html {
+    --textPrimary: hsl(230, 17%, 14%);
+    --bgCard: hsl(227, 47%, 96%);
+    --textSecondary: hsl(228, 12%, 44%);
+    --toggle: hsl(231, 13%, 79%);
+}
+html[data-theme="dark"]{
+    --textPrimary: hsl(0, 0%, 100%);
+    --bgCard: hsl(228, 28%, 20%);
+    --textSecondary: hsl(228, 34%, 66%);
+    --toggle: linear-gradient(hsl(210, 78%, 56%) to hsl(146, 68%, 55%));
+}
+
 .rootNormal {
   font-family: "Inter";
   font-weight: 700;
-  background-color: hsl(227, 47%, 96%);
+  background-color: var(--bgCard);
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
 }
 .rootNormal :hover {
     cursor: pointer;
-    background-color: hsl(230, 22%, 74%);
+    background-color: var(--toggle);
 }
 
 .img {
@@ -19,7 +32,7 @@
 
 .userName {
   font-size: 12px;
-  color: hsl(228, 12%, 44%);
+  color: var(--textSecondary);
   text-align: center;
 }
 
@@ -31,7 +44,7 @@
 .numberNormal {
   text-align: center;
   font-weight: 1000;
-  color: hsl(230, 17%, 14%);
+  color: var(--textPrimary);
   font-size: 40px;
   margin-bottom: -10px;
 }
@@ -39,7 +52,7 @@
 .followers {
   font-weight: 400;
   font-size: 12px;
-  color: hsl(228, 12%, 44%);
+  color: var(--textSecondary);
   letter-spacing: 3px;
 }
 

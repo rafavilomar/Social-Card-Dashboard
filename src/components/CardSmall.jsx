@@ -12,6 +12,16 @@ import twitter from "../assets/imgs/icon-twitter.svg";
 import youtube from "../assets/imgs/icon-youtube.svg";
 
 const CardSmall = ({ title, number, stats, type, direcction }) => {
+  
+  const [lightTheme, setLightTheme] = React.useState(
+    localStorage.getItem("theme") === "dark" ? true : false
+  );
+  React.useEffect(() => {
+    document
+      .getElementsByTagName("HTML")[0]
+      .setAttribute("data-theme", localStorage.getItem("theme"));
+  }, [lightTheme]);
+
   return (
     <div className="root">
       <Card.Body>
@@ -39,14 +49,14 @@ const CardSmall = ({ title, number, stats, type, direcction }) => {
             <Col xs={5} className="details">
               {direcction === "up" ? (
                 <p className="stats" style={{ color: "hsl(163, 72%, 41%)" }}>
-                  <span>
+                  <span className="img">
                     <Image src={up} />
                   </span>
                   {stats}
                 </p>
               ) : (
                 <p className="stats" style={{ color: "hsl(356, 69%, 56%)" }}>
-                  <span>
+                  <span className="img">
                     <Image src={down} />
                   </span>
                   {stats}

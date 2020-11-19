@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "./assets/styles/App.css";
 import CardSmall from "./components/CardSmall";
 
 import { Container, Col, Row, Form } from "react-bootstrap";
 import CardNormal from "./components/CardNormal";
 
-function App() {
-  const [lightTheme, setLightTheme] = React.useState(false);
+const App = () => {
+  const [lightTheme, setLightTheme] = React.useState(localStorage.getItem("theme") === "dark" ? true : false);
   const handleChange = () => {
-    setLightTheme(!lightTheme)
+    if (lightTheme === false) {
+      localStorage.setItem("theme", "dark");
+      setLightTheme(true);
+    } else {
+      localStorage.setItem("theme", "light");
+      setLightTheme(false);
+    }
   }
+
+  React.useEffect(() => {
+    document.getElementsByTagName("HTML")[0].setAttribute("data-theme", localStorage.getItem("theme"))
+  }, [lightTheme])
 
   return (
     <Container className="body">
@@ -26,7 +36,7 @@ function App() {
             label="Dark Mode"
             id="hoka"
             className="switch"
-            onClick = {handleChange}
+            onChange = {() => handleChange()}
           />
         </Col>
       </Row>
@@ -44,7 +54,7 @@ function App() {
         ))}
       </Row>
 
-      <h4 className="text-muted" style={{marginTop: '20px'}}>Overview - Today</h4>
+      <h4 className="text-muted subject" style={{marginTop: '20px'}}>Overview - Today</h4>
       <Row>
         {datasCardSmall.map((data) => (
           <Col xs={12} md={4} lg={3}>

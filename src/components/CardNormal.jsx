@@ -10,7 +10,22 @@ import instagram from "../assets/imgs/icon-instagram.svg";
 import twitter from "../assets/imgs/icon-twitter.svg";
 import youtube from "../assets/imgs/icon-youtube.svg";
 
-const CardNormal = ({ userName, followers, stats, direcction, type }) => {
+const CardNormal = ({
+  userName,
+  followers,
+  stats,
+  direcction,
+  type,
+  theme,
+}) => {
+  const [lightTheme, setLightTheme] = React.useState(
+    localStorage.getItem("theme") === "dark" ? true : false
+  );
+  React.useEffect(() => {
+    document
+      .getElementsByTagName("HTML")[0]
+      .setAttribute("data-theme", localStorage.getItem("theme"));
+  }, [lightTheme]);
   return (
     <div className="rootNormal">
       <Card.Body
@@ -45,14 +60,14 @@ const CardNormal = ({ userName, followers, stats, direcction, type }) => {
         <p className="followers">{followers[0]}</p>
         {direcction === "up" ? (
           <p className="statsNormal" style={{ color: "hsl(163, 72%, 41%)" }}>
-            <span>
+            <span className="img">
               <Image src={up} />
             </span>
             {stats}
           </p>
         ) : (
           <p className="statsNormal" style={{ color: "hsl(356, 69%, 56%)" }}>
-            <span>
+            <span className="img">
               <Image src={down} />
             </span>
             {stats}
